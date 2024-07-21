@@ -1,0 +1,85 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px; /* Set a fixed height for the carousel */
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%; /* Ensure the inner container takes full height */
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none; /* Ensure all slides are hidden by default */
+    height: 100%; /* Ensure the item takes full height */
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item.active {
+    display: flex; /* Display only the active slide */
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px; /* Adjust the size of the circle */
+    height: 30px; /* Adjust the size of the circle */
+    font-size: 0; /* Remove font size */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev::before, .next::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.prev::before {
+    border-width: 8px 10px 8px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.next::before {
+    border-width: 8px 0 8px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
